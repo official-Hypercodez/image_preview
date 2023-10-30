@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Images using JS</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+        img{
+            max-width: 70%;
+        }
+    </style>
+</head>
+<body>
+<!-- This is a simple HTML structure with a container div, an image element, and a file input for uploading images -->
+<div class="center">
+    <img id="image"> <!-- Placeholder for displaying the uploaded image -->
+    <input type="file" accept="images/*" id="uploadbtn"> <!-- Input field for selecting an image file -->
+</div>
+
+<script>
+    // JavaScript code to handle the image upload functionality
+    let upload = document.getElementById("uploadbtn"); // Get the file input element
+
+    upload.addEventListener("change", (e) => {
+        // Event listener to trigger when a file is selected
+        if (event.target.files.length > 0) {
+            var src = URL.createObjectURL(e.target.files[0]); // Create a URL for the selected image
+            let preview = document.getElementById("image"); // Get the image element for preview
+            preview.src = src; // Set the source of the image element to the selected image
+        }
+    });
+</script>
+
+</body>
+</html>
